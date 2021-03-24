@@ -58,6 +58,7 @@
             android:id="@+id/home_tv_welcome"
             android:layout_width="45dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:text="@string/welcome"
             android:textAlignment="center"
@@ -66,8 +67,9 @@
 
         <TextView
             android:id="@+id/home_tv_username"
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:hint="@string/username"
             android:textAlignment="center"
