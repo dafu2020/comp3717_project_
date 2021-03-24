@@ -38,10 +38,10 @@
         android:text="LOGIN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/main_editText_Password" />
 
     <EditText
-        android:id="@+id/main_te_email"
+        android:id="@+id/main_editText_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/main_tv_prom_msg" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/main_editText_Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -63,7 +63,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_te_email" />
+        app:layout_constraintTop_toBottomOf="@+id/main_editText_email" />
 
     <TextView
         android:id="@+id/main_forget_pw"
