@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RegisterUser">
 
     <TextView
-        android:id="@+id/main_tv_logo"
+        android:id="@+id/register_tv_logo"
         android:layout_width="306dp"
         android:layout_height="89dp"
         android:layout_marginTop="80dp"
@@ -15,79 +15,72 @@
         android:text="PeePeeBoo"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/main_tv_prom_msg"
+        android:id="@+id/register_tv_prom_msg"
         android:layout_width="200dp"
         android:layout_height="25dp"
+        android:layout_marginTop="3dp"
         android:gravity="center"
         android:text="Prom msg here"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_tv_logo" />
-
-    <Button
-        android:id="@+id/main_btn_login"
-        android:layout_width="275dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
-        android:text="LOGIN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_editText_Password" />
+        app:layout_constraintTop_toBottomOf="@+id/register_tv_logo" />
 
     <EditText
-        android:id="@+id/main_editText_email"
+        android:id="@+id/register_te_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_tv_prom_msg" />
+        app:layout_constraintTop_toBottomOf="@+id/register_tv_prom_msg" />
 
     <EditText
-        android:id="@+id/main_editText_Password"
+        android:id="@+id/register_te_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Password"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_editText_email" />
+        app:layout_constraintTop_toBottomOf="@+id/register_te_email" />
 
-    <TextView
-        android:id="@+id/main_forget_pw"
+    <EditText
+        android:id="@+id/register_te_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="28dp"
-        android:text="Forget Password?"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_btn_login"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/register_te_password" />
 
-    <TextView
-        android:id="@+id/main_tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Register now!"
+    <Button
+        android:id="@+id/register_btn_register"
+        android:layout_width="275dp"
+        android:layout_height="46dp"
+        android:text="register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toEndOf="@+id/main_forget_pw"
-        app:layout_constraintTop_toBottomOf="@+id/main_btn_login"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_te_name"
+        app:layout_constraintVertical_bias="0.127" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
