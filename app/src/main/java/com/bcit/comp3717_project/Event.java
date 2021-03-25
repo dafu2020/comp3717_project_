@@ -2,7 +2,7 @@ package com.bcit.comp3717_project;
 
 public class Event {
 
-    private String eventName, eventLocation, eventDescription, eventDate, eventTime;
+    private String eventName, eventLocation, eventDescription, eventDate, eventTime, eventID;
     private boolean sharedToFriends;
 
 
@@ -13,13 +13,16 @@ public class Event {
                  String eventDescription,
                  String eventDate,
                  String eventTime,
-                 boolean sharedToFriends) {
+                 boolean sharedToFriends,
+                 String eventID) {
+        this.eventID = eventID;
         this.eventName = eventName;
         this.eventLocation = eventLocation;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.sharedToFriends = sharedToFriends;
+
     }
 
     public String getEventName() {
@@ -68,5 +71,13 @@ public class Event {
 
     public void setSharedToFriends(boolean sharedToFriends) {
         this.sharedToFriends = sharedToFriends;
+    }
+
+    public String getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
 }

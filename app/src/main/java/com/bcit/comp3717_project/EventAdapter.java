@@ -1,5 +1,7 @@
 package com.bcit.comp3717_project;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +42,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
         Event event = eventList.get(position);
 
-        String eventName = event.getEventName();
-        String eventLoc = event.getEventLocation();
-        String eventDes = event.getEventDescription();
-        String eventDate = event.getEventDate();
-        String eventTime = event.getEventTime();
-        boolean shareToFriend = event.isSharedToFriends();
+        final String eventId = event.getEventID();
+        final String eventName = event.getEventName();
+        final String eventLoc = event.getEventLocation();
+        final String eventDes = event.getEventDescription();
+        final String eventDate = event.getEventDate();
+        final String eventTime = event.getEventTime();
+        final boolean shareToFriend = event.isSharedToFriends();
 
 
         tvEventName.setText(eventName);
@@ -55,6 +58,24 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         tvEventTime.setText(eventTime);
         cbShareToFriend.setChecked(shareToFriend);
 
+
+        // modify event by long-clicking
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(v.getContext(), ModifyEventActivity.class);
+                intent.putExtra("eventName", eventName);
+                intent.putExtra("eventLoc", eventLoc);
+                intent.putExtra("eventDes", eventDes);
+                intent.putExtra("eventDate", eventDate);
+                intent.putExtra("eventTime", eventTime);
+                intent.putExtra("shareToFriend", shareToFriend);
+                intent.putExtra("eventId", eventId);
+
+                v.getContext().startActivity(intent);
+                return false;
+            }
+        });
     }
 
     @Override

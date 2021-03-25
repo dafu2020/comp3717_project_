@@ -155,7 +155,7 @@ public class AddEventsActivity extends AppCompatActivity {
         }
 
         String id = eventRef.push().getKey();
-        Event event = new Event(eventName, eventLoc, eventDes, eventDate, eventTime, isChecked);
+        Event event = new Event(eventName, eventLoc, eventDes, eventDate, eventTime, isChecked, id);
 
         Task<Void> setValueTask = eventRef.child(id).setValue(event);
 
