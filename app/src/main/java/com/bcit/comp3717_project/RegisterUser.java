@@ -44,7 +44,7 @@ public class RegisterUser extends AppCompatActivity {
             }
         });
 
-        Button registerUser = findViewById(R.id.contact_add);
+        Button registerUser = findViewById(R.id.register_btn_register);
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,9 +53,9 @@ public class RegisterUser extends AppCompatActivity {
             }
         });
 
-        editTextName = (EditText) findViewById(R.id.contact_email);
+        editTextName = (EditText) findViewById(R.id.register_te_name);
         editTextEmail = (EditText) findViewById(R.id.register_te_email);
-        editTextPassword = (EditText) findViewById(R.id.contact_name);
+        editTextPassword = (EditText) findViewById(R.id.register_te_password);
 
     }
 
