@@ -7,7 +7,7 @@ public class User {
    public String name, email;
 
     private List<User> friendList;
-    private List<User> eventList;
+    private List<Event> eventList;
 
 
     public User(){
@@ -17,6 +17,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.friendList = new ArrayList<User>();
+        this.eventList = new ArrayList<Event>();
     }
 
 
@@ -43,4 +44,13 @@ public class User {
     public void setFriendList(List<User> friendList) {
         this.friendList = friendList;
     }
+
+    public List<Event> getEventList() {
+        return eventList;
+    }
+
+    public void setEventList(List<Event> eventList) {
+        this.eventList = eventList;
+    }
+
 }

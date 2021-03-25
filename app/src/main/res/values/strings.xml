@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">comp3717_project</string>
-    <string name="view_my_calendar">View my Events</string>
+    <string name="view_my_calendar">Add and View my Events</string>
     <string name="view_events">View Friends Events</string>
     <string name="account_settings">Account Settings</string>
     <string name="manage_contacts">Manage Contacts</string>

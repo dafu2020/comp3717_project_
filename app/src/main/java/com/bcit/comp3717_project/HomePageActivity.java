@@ -24,7 +24,7 @@ import java.util.Objects;
 public class HomePageActivity extends AppCompatActivity {
 
     private TextView userName;
-    private Button logOut;
+    private Button logOut, addEventBtn;
 
     //jennie
     private Button accountSettings;
@@ -32,6 +32,8 @@ public class HomePageActivity extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,17 @@ public class HomePageActivity extends AppCompatActivity {
                 Intent mainIntent  = new Intent(HomePageActivity.this,
                         MainActivity.class);
                 startActivity(mainIntent);
+            }
+        });
+
+
+        addEventBtn = (Button)findViewById(R.id.home_button_addViewMyEvent);
+        addEventBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addEventIntent  = new Intent(HomePageActivity.this,
+                        AddEventsActivity.class);
+                startActivity(addEventIntent);
             }
         });
 
