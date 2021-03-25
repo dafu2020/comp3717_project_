@@ -80,7 +80,6 @@ public class ModifyEventActivity extends AppCompatActivity {
 
 
         // update the event
-        // todo debug - cannot update multiple time
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
