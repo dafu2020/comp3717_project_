@@ -26,6 +26,9 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView userName;
     private Button logOut;
 
+    //jennie
+    private Button accountSettings;
+
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
@@ -73,5 +76,15 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(mainIntent);
             }
         });
+
+        //jennie
+        accountSettings = (Button) findViewById(R.id.home_button_acc_set);
+        accountSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePageActivity.this, AccountSettings.class));
+            }
+        });
+
     }
 }
