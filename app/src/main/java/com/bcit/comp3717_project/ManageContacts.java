@@ -1,24 +1,64 @@
 package com.bcit.comp3717_project;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.hardware.camera2.params.MandatoryStreamCombination;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ManageContacts extends AppCompatActivity {
 
-    private Button logOut, add;
+    private Button logOut;
+    private Button addContact;
+    private EditText contactName;
+    private EditText contactEmail;
+
+    RecyclerView rvContacts;
+    List<Event> contactList;
+
+    DatabaseReference currentUser;
+    DatabaseReference userContactsRef;
+
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_contacts);
 
+        //database connections and current user info
+        currentUser = FirebaseDatabase.getInstance().getReference("Users").child(userID);
+        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        userContactsRef = currentUser.child("Contacts");
+
+        //set ui variables
+        rvContacts = findViewById(R.id.manage_contacts_recyclerView);
+        contactList = new ArrayList<Event>();
+        contactEmail = findViewById(R.id.contact_email);
+        contactName = findViewById(R.id.contact_name);
         logOut = (Button) findViewById(R.id.home_button_logout);
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,12 +69,82 @@ public class ManageContacts extends AppCompatActivity {
             }
         });
 
-        add = (Button) findViewById(R.id.contact_add);
-        add.setOnClickListener(new View.OnClickListener() {
+        addContact = (Button) findViewById(R.id.contact_add);
+        addContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                addContact();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        userContactsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                contactList.clear();
+                for(DataSnapshot eventSnapshot: snapshot.getChildren()) {
+                    Event event = eventSnapshot.getValue(Event.class);
+                    contactList.add(event);
+                }
+                EventAdapter adapter = new EventAdapter(contactList);
+                rvContacts.setAdapter(adapter);
+                rvContacts.setLayoutManager(new LinearLayoutManager(ManageContacts.this));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ManageContacts.this,
+                        "Unknown Error occurred, please try again.",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void addContact(){
+        String name = contactName.getText().toString().trim();
+        String email = contactEmail.getText().toString().trim();
+
+        if(name.isEmpty()) {
+            contactName.setError("Contact Name missing.");
+            contactName.requestFocus();
+            return;
+        }
+
+        if(email.isEmpty()) {
+            contactEmail.setError("Contact Email missing.");
+            contactEmail.requestFocus();
+            return;
+        }
+
+
+        String contactsId = userContactsRef.push().getKey();
+        String contact[] = {name, email};
+
+        Task<Void> addContactTask = userContactsRef.child(email).setValue(name);
+
+        addContactTask.addOnSuccessListener(new OnSuccessListener() {
+            @Override
+            public void onSuccess(Object o) {
+                Toast.makeText(ManageContacts.this, "Contact added",
+                        Toast.LENGTH_LONG).show();
+                contactName.setText("");
+                contactEmail.setText("");
+            }
+        });
+
+        addContactTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ManageContacts.this,
+                        "Unknown Error occurred, please try again.",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
 }
