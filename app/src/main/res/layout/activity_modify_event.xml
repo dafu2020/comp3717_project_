@@ -18,56 +18,61 @@
         android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425">
+        app:layout_constraintVertical_bias="0.052">
 
         <EditText
             android:id="@+id/modifyEvent_editText_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Event name"
-            android:inputType="textPersonName" />
+            android:hint="@string/event_name"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/modifyEvent_editText_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Location"
-            android:inputType="textPersonName" />
+            android:hint="@string/location"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/modifyEvent_editText_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Description"
-            android:inputType="textPersonName" />
+            android:hint="@string/description"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/modifyEvent_editText_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Date"
-            android:inputType="date" />
+            android:hint="@string/date"
+            android:inputType="date"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/modifyEvent_editText_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Time"
-            android:inputType="time" />
+            android:hint="@string/time"
+            android:inputType="time"
+            android:importantForAutofill="no" />
 
         <CheckBox
             android:id="@+id/modifyEvent_checkbox_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share to Friends" />
+            android:text="@string/share_to_friends" />
 
         <Button
             android:id="@+id/modifyEvent_button_editEvent"
@@ -75,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="vertical"
-            android:text="Edit now!" />
+            android:text="@string/edit_now" />
 
         <Button
             android:id="@+id/modifyEvent_button_delete"
@@ -83,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="vertical"
-            android:text="Delete" />
+            android:text="@string/delete" />
 
     </LinearLayout>
 
@@ -91,12 +96,23 @@
         android:id="@+id/modifyEvent_button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.286" />
+
+    <ImageView
+        android:id="@+id/modify_imageView_bush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/modify_bush"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/art_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
