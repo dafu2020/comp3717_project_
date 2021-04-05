@@ -8,46 +8,75 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_home_btn"
-        android:layout_width="303dp"
-        android:layout_height="206dp"
+        android:layout_width="310dp"
+        android:layout_height="262dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445">
+        app:layout_constraintVertical_bias="0.41">
 
         <Button
             android:id="@+id/home_button_addViewMyEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_5"
             android:text="@string/view_my_calendar"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/home_button_view_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/view_events" />
+            android:text="@string/view_events"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_4"
+            app:backgroundTint="@null"/>
 
         <Button
             android:id="@+id/home_button_acc_set"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_settings" />
+            android:text="@string/account_settings"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_1"
+            app:backgroundTint="@null"/>
 
         <Button
             android:id="@+id/home_button_manage_contacts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/manage_contacts" />
+            android:text="@string/manage_contacts"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_3"
+            app:backgroundTint="@null"/>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/home_button_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        app:backgroundTint="@null"
+        android:textColor="#97A7BE"
+        android:background="@drawable/custom_button_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_home_btn"
+        app:layout_constraintVertical_bias="0.575" />
 
     <LinearLayout
         android:id="@+id/linearLayout_home_msg"
-        android:layout_width="342dp"
-        android:layout_height="42dp"
+        android:layout_width="377dp"
+        android:layout_height="58dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout_home_btn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,17 +103,31 @@
             android:hint="@string/username"
             android:textAlignment="center"
             android:textSize="24sp" />
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/home_button_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/log_out"
+    <ImageView
+        android:id="@+id/home_imageView_balloon"
+        android:layout_width="191dp"
+        android:layout_height="280dp"
+        android:layout_marginEnd="324dp"
+        android:contentDescription="@string/home_balloon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192"
+        app:srcCompat="@drawable/art_balloon" />
+
+    <ImageView
+        android:id="@+id/home_imageView_plant"
+        android:layout_width="297dp"
+        android:layout_height="317dp"
+        android:layout_marginBottom="28dp"
+        android:contentDescription="@string/home_plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_home_btn"
-        app:layout_constraintVertical_bias="0.425" />
+        app:srcCompat="@drawable/art_plant" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

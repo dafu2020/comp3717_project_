@@ -28,46 +28,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Event name"
-            android:inputType="textPersonName" />
+            android:hint="@string/event_name"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/addEvent_editText_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Location"
-            android:inputType="textPersonName" />
+            android:hint="@string/location"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/addEvent_editText_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Description"
-            android:inputType="textPersonName" />
+            android:hint="@string/description"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/addEvent_editText_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Date"
-            android:inputType="date" />
+            android:hint="@string/date"
+            android:inputType="date"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/addEvent_editText_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Time"
-            android:inputType="time" />
+            android:hint="@string/time"
+            android:inputType="time"
+            android:importantForAutofill="no" />
 
         <CheckBox
             android:id="@+id/addEvent_checkbox_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share to Friends" />
+            android:text="@string/share_to_friends" />
 
         <Button
             android:id="@+id/addEvent_button_addEvent"
@@ -75,7 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="vertical"
-            android:text="Add Event" />
+            android:background="@drawable/custom_button_3"
+            app:backgroundTint="@null"
+            android:text="@string/add_event" />
 
     </LinearLayout>
 
@@ -94,7 +101,7 @@
         android:layout_width="170dp"
         android:layout_height="34dp"
         android:layout_marginTop="12dp"
-        android:text="All my events:"
+        android:text="@string/all_my_events"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +113,10 @@
         android:id="@+id/addEvent_button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back"
+        android:text="@string/back"
+        app:backgroundTint="@null"
+        android:textColor="#97A7BE"
+        android:background="@drawable/custom_button_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
