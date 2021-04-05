@@ -24,7 +24,7 @@ import java.util.Objects;
 public class HomePageActivity extends AppCompatActivity {
 
     private TextView userName;
-    private Button logOut, addEventBtn;
+    private Button logOut, addEventBtn, friendEventBtn, manageContact;
 
     //jennie
     private Button accountSettings;
@@ -90,12 +90,32 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
+        friendEventBtn = (Button)findViewById(R.id.home_button_view_events);
+        friendEventBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addEventIntent  = new Intent(HomePageActivity.this,
+                        FriendsEventsActivity.class);
+                startActivity(addEventIntent);
+            }
+        });
+
         //jennie
         accountSettings = (Button) findViewById(R.id.home_button_acc_set);
         accountSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePageActivity.this, AccountSettings.class));
+            }
+        });
+
+        manageContact = (Button)findViewById(R.id.home_button_manage_contacts);
+        manageContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addEventIntent  = new Intent(HomePageActivity.this,
+                        ManageContacts.class);
+                startActivity(addEventIntent);
             }
         });
 

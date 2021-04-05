@@ -48,8 +48,8 @@ public class ManageContacts extends AppCompatActivity {
         setContentView(R.layout.activity_manage_contacts);
 
         //database connections and current user info
-        currentUser = FirebaseDatabase.getInstance().getReference("Users").child(userID);
         userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentUser = FirebaseDatabase.getInstance().getReference("Users").child(userID);
         userContactsRef = currentUser.child("Contacts");
 
         //set ui variables
