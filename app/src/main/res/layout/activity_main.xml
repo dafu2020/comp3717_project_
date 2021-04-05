@@ -47,10 +47,12 @@
         android:importantForAutofill="no" />
 
     <Button
+        app:backgroundTint="@null"
         android:id="@+id/main_btn_login"
         android:layout_width="275dp"
         android:layout_height="47dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_button_3"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

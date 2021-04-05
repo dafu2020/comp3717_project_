@@ -23,26 +23,38 @@
             android:id="@+id/home_button_addViewMyEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_5"
             android:text="@string/view_my_calendar"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/home_button_view_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/view_events" />
+            android:text="@string/view_events"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_4"
+            app:backgroundTint="@null"/>
 
         <Button
             android:id="@+id/home_button_acc_set"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_settings" />
+            android:text="@string/account_settings"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_1"
+            app:backgroundTint="@null"/>
 
         <Button
             android:id="@+id/home_button_manage_contacts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/manage_contacts" />
+            android:text="@string/manage_contacts"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_button_3"
+            app:backgroundTint="@null"/>
 
     </LinearLayout>
 
@@ -51,6 +63,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/log_out"
+        app:backgroundTint="@null"
+        android:textColor="#97A7BE"
+        android:background="@drawable/custom_button_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

@@ -76,6 +76,8 @@
         android:layout_width="275dp"
         android:layout_height="46dp"
         android:text="register"
+        app:backgroundTint="@null"
+        android:background="@drawable/custom_button_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"

@@ -21,13 +21,6 @@
     <string name="reset_unlock">reset unlock</string>
     <string name="reset_password">Reset Password</string>
     <string name="enter_email_for_reset">Enter Email for reset</string>
-    <string name="back">back</string>
-    <string name="event_name">Event name</string>
-    <string name="location">Location</string>
-    <string name="description">Description</string>
-    <string name="date">Date</string>
-    <string name="time">Time</string>
-    <string name="share_to_friends">Share to Friends</string>
     <string name="edit_now">Edit now!</string>
     <string name="delete">Delete</string>
     <string name="modify_bush">modify_bush</string>
