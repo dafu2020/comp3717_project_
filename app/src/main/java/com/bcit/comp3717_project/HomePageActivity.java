@@ -2,7 +2,6 @@ package com.bcit.comp3717_project;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ButtonBarLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,8 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class HomePageActivity extends AppCompatActivity {
 
     private TextView userName;
@@ -32,6 +29,9 @@ public class HomePageActivity extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+
+    // cindy social
+    private Button manageContacts;
 
 
 
@@ -96,6 +96,18 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePageActivity.this, AccountSettings.class));
+            }
+        });
+
+
+        //Cindy social
+        manageContacts = (Button)findViewById(R.id.home_button_manage_contacts);
+        manageContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addEventIntent  = new Intent(HomePageActivity.this,
+                        UserFriendsActivity.class);
+                startActivity(addEventIntent);
             }
         });
 
