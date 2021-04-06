@@ -24,7 +24,7 @@ import java.util.Objects;
 public class HomePageActivity extends AppCompatActivity {
 
     private TextView userName;
-    private Button logOut, addEventBtn;
+    private Button logOut, addEventBtn, manageContacts;
 
     //jennie
     private Button accountSettings;
@@ -96,6 +96,15 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomePageActivity.this, AccountSettings.class));
+            }
+        });
+
+        manageContacts = (Button)findViewById(R.id.home_button_manage_contacts);
+        manageContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, ManageContacts.class);
+                startActivity(intent);
             }
         });
 
