@@ -30,10 +30,6 @@ public class HomePageActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private String userID;
 
-    // cindy social
-    private Button manageContacts;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
