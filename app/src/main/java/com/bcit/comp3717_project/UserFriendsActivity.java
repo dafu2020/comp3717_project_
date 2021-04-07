@@ -2,6 +2,8 @@ package com.bcit.comp3717_project;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserFriendsActivity extends AppCompatActivity {
     private Button addFriendsBtn, backBtn;
     private String friendName, friendEmail;
@@ -31,16 +36,22 @@ public class UserFriendsActivity extends AppCompatActivity {
     private String userID;
 
 
+    RecyclerView rvAddedFriend;
+    List<User> addedUserList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_friends);
 
+
+        // routing stuff
         addFriendsBtn = (Button)findViewById(R.id.contacts_button_add_contact);
         addFriendsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserFriendsActivity.this, AddFriendsActivity.class);
+                Intent intent = new Intent(UserFriendsActivity.this,
+                        AddFriendsActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,6 +76,11 @@ public class UserFriendsActivity extends AppCompatActivity {
 
         friendsRef = currentUser.child("Friends");
 
+
+        // recycle view initiate
+        rvAddedFriend = findViewById(R.id.contants_recyclerView);
+        addedUserList = new ArrayList<User>();
+
     }
 
     @Override
@@ -83,6 +99,31 @@ public class UserFriendsActivity extends AppCompatActivity {
 
         Task<Void> setValueTask = friendsRef.child(id).setValue(user);
 
+
+        // read from db: all current user's added friend
+        friendsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                addedUserList.clear();
+                for (DataSnapshot addedFriendSnapshot: snapshot.getChildren()){
+                    User myAddedFriend = addedFriendSnapshot.getValue(User.class);
+                    addedUserList.add(myAddedFriend);
+                }
+
+                // connect to rv
+                AddFriendAdapter adapter = new AddFriendAdapter(addedUserList);
+                rvAddedFriend.setAdapter(adapter);
+                rvAddedFriend.setLayoutManager(new LinearLayoutManager(
+                        UserFriendsActivity.this));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UserFriendsActivity.this,
+                        "Something went Wrong.....",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }

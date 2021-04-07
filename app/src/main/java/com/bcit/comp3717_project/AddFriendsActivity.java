@@ -56,6 +56,8 @@ public class AddFriendsActivity extends AppCompatActivity {
         });
 
         userRef = FirebaseDatabase.getInstance().getReference("Users");
+
+        // recycle view stuff
         rvFriends = findViewById(R.id.addFriend_recyclerView);
         friendsList = new ArrayList<Friends>();
 
@@ -74,6 +76,7 @@ public class AddFriendsActivity extends AppCompatActivity {
 
         emailList = new ArrayList<>();
 
+        // get current user's friends' email (this is terrible wording :/)
         friendsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,12 +95,12 @@ public class AddFriendsActivity extends AppCompatActivity {
         });
 
 
-
+        // get current user's email
         currentUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userEmail = snapshot.child("email").getValue(String.class);
-                Log.d("myTag", userEmail);
+//                Log.d("myTag", userEmail);
             }
 
             @Override
@@ -108,6 +111,7 @@ public class AddFriendsActivity extends AppCompatActivity {
             }
         });
 
+        // added a user to friend list
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -120,6 +124,7 @@ public class AddFriendsActivity extends AppCompatActivity {
                     }
                 }
 
+                // connect to recycle view
                 FriendsAdapter adapter = new FriendsAdapter(friendsList);
                 rvFriends.setAdapter(adapter);
                 rvFriends.setLayoutManager(new LinearLayoutManager(AddFriendsActivity.this));
