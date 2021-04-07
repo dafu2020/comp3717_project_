@@ -26,7 +26,7 @@ public class ModifyEventActivity extends AppCompatActivity {
     DatabaseReference currentUser;
     DatabaseReference eventRef;
 
-    List<Event> eventList;
+//    List<Event> eventList;
 
     private FirebaseUser user;
     private String userID, eventId, eventName, _LOC, _DES, _DATE, _TIME;

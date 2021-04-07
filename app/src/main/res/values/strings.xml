@@ -41,5 +41,14 @@
     <string name="forget_password">Forget Password?</string>
     <string name="email">Email</string>
     <string name="main_img">main img</string>
-    <string name="your_contacts">Your Contacts</string>
+    <string name="all_my_friends">-= All my friends =-</string>
+    <string name="add_friends">Add Friends</string>
+    <string name="art_frineds">art frineds</string>
+    <string name="name">name</string>
+    <string name="shared_to_friends">Shared to Friends</string>
+    <string name="user_name">user name</string>
+    <string name="id">id</string>
+    <string name="available_friends">Available Friends</string>
+    <string name="addfriends_img">addFriends_img</string>
+
 </resources>

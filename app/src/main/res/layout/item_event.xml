@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="8dp"
-        android:hint="name"
+        android:hint="@string/name"
         android:paddingTop="3dp"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -24,11 +24,11 @@
     <TextView
         android:id="@+id/itemEvent_tv_location"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:hint="location"
+        android:hint="@string/location"
         android:textSize="16sp" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="5dp"
-        android:hint="description"
+        android:hint="@string/description"
         android:textSize="16sp" />
 
     <LinearLayout
@@ -53,20 +53,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="date" />
+            android:hint="@string/date" />
 
         <TextView
             android:id="@+id/itemEvent_tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="time" />
+            android:hint="@string/time" />
 
         <CheckBox
             android:id="@+id/itemEvent_checkBox"
             android:layout_width="126dp"
             android:layout_height="wrap_content"
-            android:text="Shared to Friends" />
+            android:text="@string/shared_to_friends" />
     </LinearLayout>
 
 </LinearLayout>
