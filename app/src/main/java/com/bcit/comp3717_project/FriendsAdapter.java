@@ -52,7 +52,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsViewHolder> {
         addFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("myTag", fiendName+"Clicked");
+//                Log.d("myTag", fiendName+"Clicked");
                 Intent intent = new Intent(v.getContext(), UserFriendsActivity.class);
 
                 intent.putExtra("friendName", fiendName);

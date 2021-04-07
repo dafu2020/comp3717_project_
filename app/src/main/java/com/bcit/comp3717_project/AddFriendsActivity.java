@@ -28,14 +28,16 @@ public class AddFriendsActivity extends AppCompatActivity {
 
     DatabaseReference userRef;
     DatabaseReference currentUser;
+    DatabaseReference friendsRef;
 
 
     RecyclerView rvFriends;
     List<Friends> friendsList;
+    List<String> emailList;
 
     private FirebaseUser user;
     private String userID;
-    String userEmail;
+    String userEmail, existingEmail;
 
 
     @Override
@@ -61,6 +63,7 @@ public class AddFriendsActivity extends AppCompatActivity {
         userID = user.getUid();
         currentUser = userRef.child(userID);
 
+        friendsRef = currentUser.child("Friends");
 
 
     }
@@ -68,6 +71,27 @@ public class AddFriendsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        emailList = new ArrayList<>();
+
+        friendsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot friendSnapshot: snapshot.getChildren()){
+                    existingEmail = friendSnapshot.child("email").getValue(String.class);
+                    emailList.add(existingEmail);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(AddFriendsActivity.this,
+                        "Something went Wrong.....",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
         currentUser.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,7 +114,8 @@ public class AddFriendsActivity extends AppCompatActivity {
                 friendsList.clear();
                 for(DataSnapshot eventSnapshot: snapshot.getChildren()) {
                     Friends friends = eventSnapshot.getValue(Friends.class);
-                    if(! friends.getEmail().equals(userEmail)){
+                    String friendEmail = friends.getEmail();
+                    if(!(friendEmail.equals(userEmail) || emailList.contains(friendEmail))){
                         friendsList.add(friends);
                     }
                 }

@@ -48,4 +48,6 @@
     <string name="shared_to_friends">Shared to Friends</string>
     <string name="user_name">user name</string>
     <string name="id">id</string>
+    <string name="available_friends">Available Friends</string>
+    <string name="addfriends_img">addFriends_img</string>
 </resources>
