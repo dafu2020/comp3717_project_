@@ -47,6 +47,7 @@ public class FriendsEventsActivity extends AppCompatActivity {
     private String userID;
 
     RecyclerView rvEvents;
+    List<Event> friend_eventList;
     List<Event> eventList;
     List<Contact> contactList;
     private String userEmail;
@@ -68,17 +69,17 @@ public class FriendsEventsActivity extends AppCompatActivity {
 
         userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Users");
         allUserList = new ArrayList<User>();
 
         rvEvents = findViewById(R.id.friendEvent_recyclerView);
-        eventList = new ArrayList<Event>();
+        friend_eventList = new ArrayList<Event>();
+        eventList = new ArrayList<>();
 
         eventRef = userRef.child("Events");
 
         contactList = new ArrayList<Contact>();
-
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        ref = database.getReference("Users");
 
         backBtn = (Button) findViewById(R.id.friendEvent_button_back);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +112,22 @@ public class FriendsEventsActivity extends AppCompatActivity {
             }
         });
 
+        // get all users in database
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                allUserList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    User user_temp = dataSnapshot.getValue(User.class);
+                    allUserList.add(user_temp);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         eventRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -120,26 +137,19 @@ public class FriendsEventsActivity extends AppCompatActivity {
                     eventList.add(event);
                 }
 
-                for(int i = 0; i < allUserList.size(); i++) {
-                    String temp_email = allUserList.get(i).getEmail();
-                    if(userEmail.equals(temp_email)){
-                        allUserList.get(i).setEventList(eventList);
-                    }
-                }
-
                 for (int i = 0; i < contactList.size(); i++) {
                     String temp_email_contact = contactList.get(i).getEmail();
                     for (int j = 0; j < allUserList.size(); j++) {
                         String temp_email_db = allUserList.get(j).getEmail();
                         if (temp_email_contact.equals(temp_email_db)){
-                            System.out.println("is there? " + allUserList.get(j).getName());
+                            //System.out.println("is there? " + allUserList.get(j).getName());
                             if (allUserList.get(j).getEventList() != null) {
                                 // get all the event list of found email
                                 for (int k = 0; k < allUserList.get(j).getEventList().size(); k++) {
                                     // check whether it was shared
                                     // if true
                                     if (allUserList.get(j).getEventList().get(k).isSharedToFriends()) {
-                                        eventList.add(allUserList.get(j).getEventList().get(k));
+                                        friend_eventList.add(allUserList.get(j).getEventList().get(k));
                                     }
                                 }
                             }
@@ -158,22 +168,6 @@ public class FriendsEventsActivity extends AppCompatActivity {
                 Toast.makeText(FriendsEventsActivity.this,
                         "Something went Wrong.....",
                         Toast.LENGTH_LONG).show();
-            }
-        });
-
-        // get all users in database
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                allUserList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    User user_temp = dataSnapshot.getValue(User.class);
-                    allUserList.add(user_temp);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
