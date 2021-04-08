@@ -35,7 +35,7 @@
     <string name="add_event">Add Event</string>
     <string name="register_now">Register now!</string>
     <string name="peepeeboo">PeePeeBoo</string>
-    <string name="prom_msg_here">Prom msg here</string>
+    <string name="prom_msg_here">Stay connected!</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
     <string name="forget_password">Forget Password?</string>
@@ -60,5 +60,8 @@
     <string name="confirm_email">Confirm Email</string>
     <string name="update_email">Update Email</string>
     <string name="change_email">CHANGE EMAIL</string>
+    <string name="emailart">emailArt</string>
+    <string name="acountpic">acountPic</string>
+    <string name="registerart">registerArt</string>
 
 </resources>

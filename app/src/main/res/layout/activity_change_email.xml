@@ -10,6 +10,9 @@
         android:layout_width="306dp"
         android:layout_height="89dp"
         android:layout_marginTop="48dp"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#6BA0C8"
         android:gravity="center"
         android:text="@string/update_email"
         android:textAlignment="center"
@@ -22,7 +25,7 @@
         android:id="@+id/auth_te_email_old"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:hint="@string/current_email"
         android:importantForAutofill="no"
@@ -33,52 +36,10 @@
         app:layout_constraintTop_toBottomOf="@+id/email_tv_logo" />
 
     <EditText
-        android:id="@+id/auth_te_newEmail_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/confirm_email"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auth_te_newEmail" />
-
-    <Button
-        android:id="@+id/auth_btn_update_email"
-        android:layout_width="275dp"
-        android:layout_height="46dp"
-        android:background="@drawable/custom_button_3"
-        android:text="@string/update_email"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auth_te_newEmail"
-        app:layout_constraintVertical_bias="0.272" />
-
-    <EditText
-        android:id="@+id/auth_te_newEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/new_email"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auth_te_password_email" />
-
-    <EditText
         android:id="@+id/auth_te_password_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/current_password"
         android:importantForAutofill="no"
@@ -88,31 +49,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auth_te_email_old" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/auth_btn_backHome"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="@drawable/custom_button_2"-->
-    <!--        android:text="@string/back"-->
-    <!--        android:textColor="#97A7BE"-->
-    <!--        app:backgroundTint="@null"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.498"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/auth_btn_update"-->
-    <!--        app:layout_constraintVertical_bias="0.057" />-->
-
-    <ImageView
-        android:id="@+id/auth_imageView"
+    <EditText
+        android:id="@+id/auth_te_newEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/auth_background"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/new_email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_te_password_email" />
+
+    <Button
+        android:id="@+id/auth_btn_update_email"
+        android:layout_width="275dp"
+        android:layout_height="46dp"
+        android:background="@drawable/custom_button_5"
+        android:text="@string/update_email"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/art_background" />
+        app:layout_constraintTop_toBottomOf="@+id/auth_te_newEmail"
+        app:layout_constraintVertical_bias="0.443" />
+
+    <EditText
+        android:id="@+id/auth_te_newEmail_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/confirm_email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_te_newEmail" />
+
+    <ImageView
+        android:id="@+id/auth_imageView_emaiArt"
+        android:layout_width="227dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/emailart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_tv_logo"
+        app:srcCompat="@drawable/art__mail" />
+
+    <Button
+        android:id="@+id/auth_button_emailBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_button_2"
+        android:text="@string/back"
+        android:textColor="#97A7BE"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_btn_update_email" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
