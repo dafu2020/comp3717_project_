@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomePageActivity extends AppCompatActivity {
 
     private TextView userName;
-    private Button logOut, addEventBtn, manageContacts;
+    private Button logOut, addEventBtn, manageContacts, friendsEvent;
 
     //jennie
     private Button accountSettings;
@@ -61,6 +61,16 @@ public class HomePageActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
 
+        });
+
+        friendsEvent = (Button)findViewById(R.id.home_button_view_events);
+        friendsEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addEventIntent  = new Intent(HomePageActivity.this,
+                        FriendsEventsActivity.class);
+                startActivity(addEventIntent);
+            }
         });
 
 
