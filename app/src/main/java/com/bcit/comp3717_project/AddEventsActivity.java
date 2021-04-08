@@ -42,6 +42,10 @@ public class AddEventsActivity extends AppCompatActivity {
 
     private FirebaseUser user;
     private String userID;
+    private String userEmail;
+
+    List<User> allUserList;
+    DatabaseReference ref;
 
 
     @Override
@@ -54,9 +58,14 @@ public class AddEventsActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         userID = user.getUid();
+        userEmail = user.getEmail();
         currentUser = userRef.child(userID);
 
         eventRef = currentUser.child("Events");
+        allUserList = new ArrayList<User>();
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Users");
 
         backBtn = (Button)findViewById(R.id.addEvent_button_back);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +110,24 @@ public class AddEventsActivity extends AppCompatActivity {
                     Event event = eventSnapshot.getValue(Event.class);
                     eventList.add(event);
                 }
+
+                for(int i = 0; i < allUserList.size(); i++) {
+                    String temp_email = allUserList.get(i).getEmail();
+                    if(userEmail.equals(temp_email)){
+                        allUserList.get(i).setEventList(eventList);
+                    }
+                }
+
+//                for(int i = 0; i < allUserList.size(); i++) {
+//                    String temp_email = allUserList.get(i).getEmail();
+//                    if(userEmail.equals(temp_email)){
+//                        for(int j = 0; j < allUserList.get(i).getEventList().size(); j++){
+//                            System.out.println("event1: " + allUserList.get(i).getEventList().get(j).getEventName());
+//                        }
+//                    }
+//                }
+
+
                 EventAdapter adapter = new EventAdapter(eventList);
                 rvEvents.setAdapter(adapter);
                 rvEvents.setLayoutManager(new LinearLayoutManager(AddEventsActivity.this));
@@ -111,6 +138,22 @@ public class AddEventsActivity extends AppCompatActivity {
                 Toast.makeText(AddEventsActivity.this,
                         "Something went Wrong.....",
                         Toast.LENGTH_LONG).show();
+            }
+        });
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                allUserList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    User user_temp = dataSnapshot.getValue(User.class);
+                    allUserList.add(user_temp);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
@@ -189,3 +232,4 @@ public class AddEventsActivity extends AppCompatActivity {
 
 
 }
+
