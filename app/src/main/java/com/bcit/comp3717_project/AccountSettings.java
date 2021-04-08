@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AccountSettings extends AppCompatActivity {
 
     private TextView userName;
-    private Button logOut, changeName, changePwd;
+    private Button logOut, changeEmail, changePwd;
 
     //jennie
     private Button accountSettings;
@@ -82,6 +82,16 @@ public class AccountSettings extends AppCompatActivity {
             public void onClick(View v) {
                 Intent settingsIntent  = new Intent(AccountSettings.this,
                         ChangePwdActivity.class);
+                startActivity(settingsIntent);
+            }
+        });
+
+        changeEmail = (Button)findViewById(R.id.account_settings_email);
+        changeEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent settingsIntent  = new Intent(AccountSettings.this,
+                        ChangeEmailActivity.class);
                 startActivity(settingsIntent);
             }
         });
