@@ -117,7 +117,10 @@ public class FriendsEventsActivity extends AppCompatActivity {
                 eventList.clear();
                 for(DataSnapshot eventSnapshot: snapshot.getChildren()) {
                     Event event = eventSnapshot.getValue(Event.class);
-                    eventList.add(event);
+                    if (event.isSharedToFriends()){
+                        eventList.add(event);
+                    }
+
                 }
 
                 for(int i = 0; i < allUserList.size(); i++) {
@@ -127,27 +130,27 @@ public class FriendsEventsActivity extends AppCompatActivity {
                     }
                 }
 
-                for (int i = 0; i < contactList.size(); i++) {
-                    String temp_email_contact = contactList.get(i).getEmail();
-                    for (int j = 0; j < allUserList.size(); j++) {
-                        String temp_email_db = allUserList.get(j).getEmail();
-                        if (temp_email_contact.equals(temp_email_db)){
-                            System.out.println("is there? " + allUserList.get(j).getName());
-                            if (allUserList.get(j).getEventList() != null) {
-                                // get all the event list of found email
-                                for (int k = 0; k < allUserList.get(j).getEventList().size(); k++) {
-                                    // check whether it was shared
-                                    // if true
-                                    if (allUserList.get(j).getEventList().get(k).isSharedToFriends()) {
-                                        eventList.add(allUserList.get(j).getEventList().get(k));
-                                    }
-                                }
-                            }
-
-                        }
-
-                    }
-                }
+//                for (int i = 0; i < contactList.size(); i++) {
+//                    String temp_email_contact = contactList.get(i).getEmail();
+//                    for (int j = 0; j < allUserList.size(); j++) {
+//                        String temp_email_db = allUserList.get(j).getEmail();
+//                        if (temp_email_contact.equals(temp_email_db)){
+//                            System.out.println("is there? " + allUserList.get(j).getName());
+//                            if (allUserList.get(j).getEventList() != null) {
+//                                // get all the event list of found email
+//                                for (int k = 0; k < allUserList.get(j).getEventList().size(); k++) {
+//                                    // check whether it was shared
+//                                    // if true
+//                                    if (allUserList.get(j).getEventList().get(k).isSharedToFriends()) {
+//                                        eventList.add(allUserList.get(j).getEventList().get(k));
+//                                    }
+//                                }
+//                            }
+//
+//                        }
+//
+//                    }
+//                }
                 EventAdapter adapter = new EventAdapter(eventList);
                 rvEvents.setAdapter(adapter);
                 rvEvents.setLayoutManager(new LinearLayoutManager(FriendsEventsActivity.this));
