@@ -3,6 +3,7 @@ package com.bcit.comp3717_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -25,7 +26,7 @@ public class ChangeEmailActivity extends AppCompatActivity {
 
 
     private TextView userName;
-    private Button update;
+    private Button update, back;
     private EditText editTextEmail,  editTextPassword,
             editTextNewEmail, editTextNewEmailConfirm;
 
@@ -59,6 +60,16 @@ public class ChangeEmailActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.auth_te_password_email);
         editTextNewEmail = (EditText) findViewById(R.id.auth_te_newEmail);
         editTextNewEmailConfirm = (EditText) findViewById(R.id.auth_te_newEmail_confirm);
+
+        back = (Button)findViewById(R.id.auth_button_emailBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeIntent  = new Intent(ChangeEmailActivity.this,
+                        AccountSettings.class);
+                startActivity(homeIntent);
+            }
+        });
 
     }
 

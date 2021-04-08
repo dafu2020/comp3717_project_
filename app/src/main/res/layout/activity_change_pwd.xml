@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_btn_pwdBack"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,6 +14,9 @@
         android:gravity="center"
         android:text="@string/update_password"
         android:textAlignment="center"
+        android:textColor="#6BA0C8"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,10 +59,9 @@
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auth_te_newPass"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.33" />
 
     <EditText
         android:id="@+id/auth_te_newPass"
@@ -88,21 +91,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auth_te_email" />
 
-<!--    <Button-->
-<!--        android:id="@+id/auth_btn_backHome"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/custom_button_2"-->
-<!--        android:text="@string/back"-->
-<!--        android:textColor="#97A7BE"-->
-<!--        app:backgroundTint="@null"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/auth_btn_update"-->
-<!--        app:layout_constraintVertical_bias="0.057" />-->
-
     <ImageView
         android:id="@+id/auth_imageView"
         android:layout_width="wrap_content"
@@ -113,6 +101,20 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/art_background" />
+
+    <Button
+        android:id="@+id/auth_button_pwdBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_button_2"
+        android:text="@string/back"
+        android:textColor="#97A7BE"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_btn_update" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

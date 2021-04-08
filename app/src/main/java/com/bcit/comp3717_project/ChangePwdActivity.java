@@ -28,7 +28,7 @@ public class ChangePwdActivity extends AppCompatActivity {
 
 
     private TextView userName;
-    private Button update;
+    private Button update, back;
     private EditText editTextEmail,  editTextPassword,
             editTextNewPassword, editTextNewPasswordConfirm;
 
@@ -62,6 +62,16 @@ public class ChangePwdActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.auth_te_password);
         editTextNewPassword = (EditText) findViewById(R.id.auth_te_newPass);
         editTextNewPasswordConfirm = (EditText) findViewById(R.id.auth_te_newPass_confirm);
+
+        back = (Button)findViewById(R.id.auth_button_pwdBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeIntent  = new Intent(ChangePwdActivity.this,
+                        AccountSettings.class);
+                startActivity(homeIntent);
+            }
+        });
 
     }
 
