@@ -51,5 +51,9 @@
     <string name="available_friends">Available Friends</string>
     <string name="addfriends_img">addFriends_img</string>
     <string name="update_password">Update Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="auth_background">auth_background</string>
 
 </resources>
