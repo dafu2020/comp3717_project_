@@ -117,15 +117,16 @@ public class AddEventsActivity extends AppCompatActivity {
                         allUserList.get(i).setEventList(eventList);
                     }
                 }
-
-//                for(int i = 0; i < allUserList.size(); i++) {
-//                    String temp_email = allUserList.get(i).getEmail();
-//                    if(userEmail.equals(temp_email)){
-//                        for(int j = 0; j < allUserList.get(i).getEventList().size(); j++){
-//                            System.out.println("event1: " + allUserList.get(i).getEventList().get(j).getEventName());
-//                        }
-//                    }
-//                }
+/*
+                for(int i = 0; i < allUserList.size(); i++) {
+                    String temp_email = allUserList.get(i).getEmail();
+                    if(userEmail.equals(temp_email)){
+                        for(int j = 0; j < allUserList.get(i).getEventList().size(); j++){
+                            System.out.println("event1: " + allUserList.get(i).getEventList().get(j).getEventName());
+                        }
+                    }
+                }
+ */
 
 
                 EventAdapter adapter = new EventAdapter(eventList);
