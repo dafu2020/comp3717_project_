@@ -14,7 +14,6 @@
         <activity android:name=".UserFriendsActivity" />
         <activity android:name=".ModifyEventActivity" />
         <activity android:name=".AddEventsActivity" />
-        <activity android:name=".ManageContacts" />
         <activity android:name=".AccountSettings" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".RegisterUser" />
