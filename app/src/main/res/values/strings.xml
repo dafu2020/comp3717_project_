@@ -63,5 +63,6 @@
     <string name="emailart">emailArt</string>
     <string name="acountpic">acountPic</string>
     <string name="registerart">registerArt</string>
+    <string name="all_friends_events">All Friends\' events:</string>
 
 </resources>
