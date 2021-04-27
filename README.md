@@ -1,6 +1,3 @@
-# Project PeePeeBoo
-Project for COMP3717
-
 # PeePeeBoo Documentation
 
 ### Project Purpose
