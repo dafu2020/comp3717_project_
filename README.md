@@ -24,6 +24,6 @@ PeePeeBoo was made with the goal of being an integral part of managing one’s s
 
 ### Team Members
 
-- Jihyun Yang kwong447@my.bcit.ca
+- Jihyun Yang jennieyang95@gmail.com
 - Cindy Lu cindy.lu18@hotmail.com
-- Ian Snider mikesampson68@gmail.com
+- Ian Snider Ian.G.Snider@gamil.com
